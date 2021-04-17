@@ -10,7 +10,7 @@ export default class PersonDetails extends Component {
 
   state = {
     person: null,
-    loading: true
+    loading: false
   };
 
   componentDidMount() {
@@ -34,6 +34,8 @@ export default class PersonDetails extends Component {
       return;
     }
 
+    this.setState({loading: true});
+
     this.swapiService
       .getPerson(personId)
       .then((person) => {
@@ -49,7 +51,7 @@ export default class PersonDetails extends Component {
 
     const errorMessage = !person ? <NoPersonView /> : null;
     const spinner = loading ? <Spinner /> : null;
-    const content = !loading ? <PersonView person={person} /> : null;
+    const content = !loading && person ? <PersonView person={person} /> : null;
 
     return (
       <div className="person-details card">
