@@ -18,3 +18,10 @@
 .person-details .list-group-item .term{
   margin-right: .5rem;
 }
+
+
+@media (max-width: 768px) {
+  .person-details.card {
+    margin-bottom: 40px;
+  }
+}
