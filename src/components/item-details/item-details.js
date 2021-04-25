@@ -4,6 +4,19 @@ import './item-details.css';
 import SwapiService from "../../services/swapi-service";
 import Spinner from "../spinner";
 
+const Record = ({data, field, label}) => {
+  return (
+    <li className="list-group-item">
+      <span className="term">{label}</span>
+      <span>{data[field]}</span>
+    </li>
+  );
+};
+
+export {
+  Record
+};
+
 export default class ItemDetails extends Component {
 
   swapiService = new SwapiService();
@@ -52,7 +65,7 @@ export default class ItemDetails extends Component {
 
     const errorMessage = !item ? <NoDataView /> : null;
     const spinner = loading ? <Spinner /> : null;
-    const content = !loading && item ? <DataView data={item} image={image} /> : null;
+    const content = !loading && item ? <DataView data={item} image={image} children={this.props.children} /> : null;
 
     return (
       <div className="item-details card">
@@ -72,7 +85,7 @@ const NoDataView = () => {
   )
 };
 
-const DataView = ({data, image}) => {
+const DataView = ({data, image, children}) => {
   const {name, gender, birthYear, eyeColor} = data;
 
   return (
@@ -84,18 +97,11 @@ const DataView = ({data, image}) => {
       <div className="card-body">
         <h4>{name}</h4>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">
-            <span className="term">Gender</span>
-            <span>{gender}</span>
-          </li>
-          <li className="list-group-item">
-            <span className="term">Birth Year</span>
-            <span>{birthYear}</span>
-          </li>
-          <li className="list-group-item">
-            <span className="term">Eye Color</span>
-            <span>{eyeColor}</span>
-          </li>
+          {
+            React.Children.map(children, (child) => {
+              return React.cloneElement(child, {data});
+            })
+          }
         </ul>
       </div>
     </React.Fragment>
