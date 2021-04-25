@@ -86,7 +86,7 @@ const NoDataView = () => {
 };
 
 const DataView = ({data, image, children}) => {
-  const {name, gender, birthYear, eyeColor} = data;
+  const {name} = data;
 
   return (
     <React.Fragment>
