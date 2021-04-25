@@ -7,6 +7,7 @@ import SwapiService from "../../services/swapi-service";
 import Row from "../row";
 import ErrorBoundry from "../error-boundry";
 import ItemDetails, { Record } from "../item-details/item-details";
+import PeoplePage from "../people-page";
 
 export default class App extends Component {
 
@@ -59,6 +60,8 @@ export default class App extends Component {
             left={personDetails}
             right={starshipDetails}
           />
+
+          <PeoplePage />
 
         </div>
       </ErrorBoundry>
