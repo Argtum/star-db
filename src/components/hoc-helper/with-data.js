@@ -9,7 +9,6 @@ const withData = (View) => {
 			data: null,
 			loading: true,
 			error: false
-
 		}
 
 		componentDidMount() {
