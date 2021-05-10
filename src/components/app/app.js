@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 
-import Header from '../header';
-import RandomPlanet from '../random-planet';
-import SwapiService from '../../services/swapi-service';
-import ErrorBoundry from '../error-boundry';
-import {SwapiServiceProvider} from '../swapi-service-context'
-import {PeoplePage, PlanetPage, StarshipPage} from '../pages'
+import Header from "../header";
+import RandomPlanet from "../random-planet";
+import SwapiService from "../../services/swapi-service";
+import ErrorBoundry from "../error-boundry";
+import {SwapiServiceProvider} from "../swapi-service-context"
+import {PeoplePage, PlanetPage, StarshipPage} from "../pages"
 
-import './app.css';
+import "./app.css";
 
 export default class App extends Component {
 
