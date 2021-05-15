@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StarshipList, StarshipDetails} from "../sw-components";
 import Row from "../row";
 
-export default class StarshipPage extends Component {
+export default class StarshipsPage extends Component {
   state = {
     selectedItem: null
   };
